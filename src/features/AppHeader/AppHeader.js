@@ -30,10 +30,7 @@ const AppHeader = ({ fbUser, onSignout }) => {
                     <MenuIcon />
                 </IconButton>
                 <div className={classes.links}>
-                    {(fbUser && fbUser.idToken) && <Link to="/admin" className={classes.link}><Typography variant="button">Admin</Typography></Link>}
                     {(fbUser && fbUser.idToken) && <Link to="/yachts" className={classes.link}><Typography variant="button">Yachts</Typography></Link>}
-                    {(fbUser && fbUser.idToken) && <Link to="/customers" className={classes.link}><Typography variant="button">Companies</Typography></Link>}
-                    {(fbUser && fbUser.idToken) && <Link to="/contacts" className={classes.link}><Typography variant="button">Contacts</Typography></Link>}
                 </div>
                 {
                     (!fbUser || !fbUser.idToken) && <Link to="/signin" className={classes.link}><Typography variant="button">Login</Typography></Link>

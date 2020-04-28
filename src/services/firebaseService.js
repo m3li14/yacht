@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const firebaseProj = 'my-project-1486841534385';
+const firebaseProj = 'yachts-1baaa';
 let tableName;
 
 const firebaseService = (fbTable) => {

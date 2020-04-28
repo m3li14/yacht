@@ -1,5 +1,5 @@
 import axios from 'axios';
-const apiKey = 'AIzaSyDxggzPT57iqEo-tohF6HqdpYj4YmIopnM';
+const apiKey = 'AIzaSyDO8jhD5kAOCtGONcvjmAnvdGwPjpR8GyY';
 const authService = {
     webApiKey: apiKey,
     signIn: async function signInService(user) {
