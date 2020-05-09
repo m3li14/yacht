@@ -33,9 +33,7 @@ function App() {
       <AppHeader fbUser={appState.User} onSignout={handleOnSignedout}></AppHeader>
       <PublicRoute exact path="/" component={() => <AppHome fbUser={appState.User} />} fbUser={appState.User}></PublicRoute>
       <PublicRoute restricted={true} exact path="/signin" component={() => <SignIn onSignedIn={handleOnSignedIn} />} fbUser={appState.User}></PublicRoute>
-      <PrivateRoute exact path="/customers" component={() => <CustomersManager fbUser={appState.User} />} fbUser={appState.User}></PrivateRoute>
       <PrivateRoute exact path="/yachts" component={() => <YachtsManager fbUser={appState.User} />} fbUser={appState.User}></PrivateRoute>
-      <PrivateRoute exact path="/contacts" component={() => <ContactsManager fbUser={appState.User} />} fbUser={appState.User}></PrivateRoute>
       <PrivateRoute exact path="/admin" component={() => <Admin fbUser={appState.User} onEnableImport={handleOnEnableImport} />} fbUser={appState.User}></PrivateRoute>
     </Router>
   );
