@@ -7,7 +7,7 @@ const definition = {
     { name: 'hull', summary: 4 },
     { name: 'sellingbroker', label: 'Selling broker' },
     { name: 'brokeragehouse', label: 'Brokerage house' },
-    { name: 'length', type: 'number' },
+    { name: 'length'},
     { name: 'beam' },
     { name: 'depth' },
     { name: 'newreg', label: 'New Registration' },
