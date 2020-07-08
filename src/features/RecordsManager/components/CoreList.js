@@ -66,13 +66,23 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
+const isTermnInRow = (term, rowData) => {
+
+  return term && rowData && Object.values(rowData).join('').replace(/[\n ,-]/g, '').toLowerCase().includes(term.toLowerCase());
+
+}
+
 const CoreList = ({ definition, fbUser, records, onAdd, onDelete, onUpdate, onImport, importMessage, onImportUrlChange }) => {
-  const summaryColumns = _.filter(definition.fields, (f)=> !!f.summary);
-  const sortedSummaryColumns = _.orderBy(summaryColumns, ['summary', ['asc']]).map(r => { return { title: r.label, field: r.name } });
+  const summaryColumns = _.filter(definition.fields, (f) => !!f.summary);
+  const sortedSummaryColumns = _.orderBy(summaryColumns, ['summary', ['asc']]).map(r => { return { title: r.label, field: r.name, customFilterAndSearch: (term, rowData) => isTermnInRow(term, rowData) } });
   const classes = useStyles();
 
   return (
     <React.Fragment>
+
+      <div>{isTermnInRow('', records[0])}</div>
+
       {(importMessage || fbUser.enableImport) &&
         <div className={classes.toolbarContainer}>
           <TextField className={classes.importUrlField} onChange={onImportUrlChange} label="Import url"></TextField>
