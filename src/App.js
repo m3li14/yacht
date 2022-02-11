@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 // import SignUp from './features/auth/SignUp';
 import SignIn from './features/auth/SignIn';
-import CustomersManager from './features/Customers/CustomersManager';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppHeader from './features/AppHeader/AppHeader';
-import ContactsManager from './features/Contacts/ContactsManager';
 import AppHome  from './features/AppHome/AppHome';
 import YachtsManager from './features/YachtsManager/YactsManager';
 import Admin from './features/Admin/Admin'
