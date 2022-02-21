@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Paper, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import authService from '../../services/authService'
-import firebaseService  from '../../services/firebaseService'
 
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
@@ -25,15 +23,12 @@ const useStyles = makeStyles((theme) => ({
 
 const AppHome = ({ fbUser }) => {
     const classes = useStyles();
-    const fbSrvc = firebaseService();
     return (
         <Container className={classes.mainContainer}>
             <Paper elevation={5} className={classes.message}>
-                {
-                    (!fbUser.idToken) && <Typography>Welcome to Keepy! Web API Key {authService.webApiKey}, ProjId: {fbSrvc.projId}</Typography>
-                }
-                {
-                    (fbUser.idToken) && <Typography color='primary'>{`Welcome, ${fbUser.localId} [aka: ${fbUser.email}]`}</Typography>
+                {fbUser.idToken ? <Typography color='primary'>{`Welcome, ${fbUser.email}`}</Typography>
+                    :
+                    <Typography>User is not logged in, Please login.</Typography>
                 }
             </Paper>
         </Container>

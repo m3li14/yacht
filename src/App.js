@@ -16,7 +16,7 @@ function App() {
       setAppState(s => s = { ...appState, User: fbUser });
     }
   }
-  const handleOnSignedout = (fbUser) => {
+  const handleOnSignOut = (fbUser) => {
       setAppState({ User: {} });
   }
 
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <Router>
-      <AppHeader fbUser={appState.User} onSignout={handleOnSignedout}></AppHeader>
+      <AppHeader user={appState.User} onSignOut={handleOnSignOut}></AppHeader>
       <PublicRoute exact path="/" component={() => <AppHome fbUser={appState.User} />} fbUser={appState.User}></PublicRoute>
       <PublicRoute restricted={true} exact path="/signin" component={() => <SignIn onSignedIn={handleOnSignedIn} />} fbUser={appState.User}></PublicRoute>
       <PrivateRoute exact path="/yachts" component={() => <YachtsManager fbUser={appState.User} />} fbUser={appState.User}></PrivateRoute>

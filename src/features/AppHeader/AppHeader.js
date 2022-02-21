@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const AppHeader = ({ fbUser, onSignout }) => {
+const AppHeader = ({ user, onSignOut }) => {
     const classes = useStyles();
     return (
         <AppBar position="static">
@@ -30,13 +30,13 @@ const AppHeader = ({ fbUser, onSignout }) => {
                     <MenuIcon />
                 </IconButton>
                 <div className={classes.links}>
-                    {(fbUser && fbUser.idToken) && <Link to="/yachts" className={classes.link}><Typography variant="button">Yachts</Typography></Link>}
+                    {(user && user.idToken) && <Link to="/yachts" className={classes.link}><Typography variant="button">Yachts</Typography></Link>}
                 </div>
                 {
-                    (!fbUser || !fbUser.idToken) && <Link to="/signin" className={classes.link}><Typography variant="button">Login</Typography></Link>
+                    (!user || !user.idToken) && <Link to="/signin" className={classes.link}><Typography variant="button">Login</Typography></Link>
                 }
                 {
-                    (fbUser && fbUser.idToken) && <Button className={classes.link} onClick={onSignout}><Typography variant="button">Logout</Typography></Button>
+                    (user && user.idToken) && <Button className={classes.link} onClick={onSignOut}><Typography variant="button">Logout</Typography></Button>
                 }
 
             </Toolbar>

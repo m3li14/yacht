@@ -41,9 +41,9 @@ const SignIn = ({ onSignedIn }) => {
     }
 
     const handleSignIn = async () => {
-        const fbuser = await authService.signIn(user);
+        const fbUser = await authService.signIn(user);
         history.push('/');
-        onSignedIn(fbuser.data);
+        onSignedIn(fbUser.data);
     }
 
     return (
